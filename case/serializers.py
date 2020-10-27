@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from location.serializers import CaseLocationSerializer
+from location.serializers import CaseLocationOutputSerializer
 from patient.serializers import PatientSerializer
 from virus.serializers import VirusSerializer
 from .models import Case
@@ -14,7 +14,7 @@ class CaseSerializer(serializers.ModelSerializer):
     patient = PatientSerializer()
     virus = VirusSerializer()
 
-    case_locations = CaseLocationSerializer(many=True)
+    case_locations = CaseLocationOutputSerializer(many=True)
 
     class Meta:
         model = Case

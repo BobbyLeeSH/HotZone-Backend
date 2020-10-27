@@ -2,7 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import requests
 
-from .serializers import LocationSerializer, CaseLocationSerializer
+from .serializers import LocationSerializer, CaseLocationInputSerializer, CaseLocationOutputSerializer
 from .models import Location, CaseLocation
 from rest_framework import status
 
@@ -67,11 +67,11 @@ def location_search(request, place):
 def case_location_list(request):
     if request.method == 'GET':
         case_location = CaseLocation.objects.all()
-        serializer = CaseLocationSerializer(case_location, many=True)
+        serializer = CaseLocationOutputSerializer(case_location, many=True)
 
         return Response(serializer.data)
     elif request.method == 'POST':
-        serializer = CaseLocationSerializer(data=request.data)
+        serializer = CaseLocationInputSerializer(data=request.data)
 
         if serializer.is_valid():
             serializer.save()
@@ -91,7 +91,7 @@ def case_location_detail(request, pk):
     if request.method == 'GET':
         print(case_location.case)
         print(case_location.location)
-        serializer = CaseLocationSerializer(case_location)
+        serializer = CaseLocationOutputSerializer(case_location)
 
         return Response(serializer.data)
 

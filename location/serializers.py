@@ -9,7 +9,7 @@ class LocationSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CaseLocationSerializer(serializers.ModelSerializer):
+class CaseLocationOutputSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField()
 
     date_from = serializers.DateField()
@@ -18,6 +18,12 @@ class CaseLocationSerializer(serializers.ModelSerializer):
 
     location = LocationSerializer()
 
+    class Meta:
+        model = CaseLocation
+        fields = '__all__'
+
+
+class CaseLocationInputSerializer(serializers.ModelSerializer):
     class Meta:
         model = CaseLocation
         fields = '__all__'
