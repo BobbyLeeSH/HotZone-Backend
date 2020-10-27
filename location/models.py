@@ -21,7 +21,7 @@ class Location(models.Model):
 
 
 class CaseLocation(models.Model):
-    case = models.ForeignKey(Case, on_delete=models.CASCADE)
+    case = models.ForeignKey(Case, on_delete=models.CASCADE, related_name='case_locations')
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     date_from = models.DateField()
     date_to = models.DateField()
