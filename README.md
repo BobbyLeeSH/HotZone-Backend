@@ -1,4 +1,4 @@
 # HotZone-Backend
 
 # Django project
-## HKU Software Engineering Course Project
+HKU Software Engineering Course Project
