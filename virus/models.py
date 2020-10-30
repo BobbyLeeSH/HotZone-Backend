@@ -13,7 +13,7 @@ class Virus(models.Model):
     max_infection_period = models.IntegerField()
 
     def __str__(self):
-        return self.namec
+        return self.name
 
     class Meta:
         ordering = ['id']
