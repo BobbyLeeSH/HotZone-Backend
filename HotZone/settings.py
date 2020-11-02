@@ -106,7 +106,7 @@ WSGI_APPLICATION = 'HotZone.wsgi.application'
 # }
 
 DATABASES = {
-    "default": env.dj_db_url('DATABASE_URL')
+    'default': env.dj_db_url('DATABASE_URL')
 }
 
 # Password validation
